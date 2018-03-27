@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes, Router } from '@angular/router';
+import { RouterModule, Routes, Router, PreloadAllModules } from '@angular/router';
+import { Error404Component } from './error404/error404/error404.component';
 
 const appRoutes: Routes = [
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
+  },
+  {
+    path: 'items',
+    loadChildren: 'app/items/items.module#ItemsModule',
   },
 ];
 
@@ -14,7 +19,11 @@ const appRoutes: Routes = [
     CommonModule,
     RouterModule.forRoot(
       appRoutes,
-      //{ enableTracing: true } // <-- debugging purposes only
+      {
+        //enableTracing: true
+        preloadingStrategy: PreloadAllModules
+      }
+
     )
   ],
   declarations: [],
