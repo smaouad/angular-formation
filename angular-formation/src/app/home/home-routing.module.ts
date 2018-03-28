@@ -14,10 +14,6 @@ const appRoutes: Routes = [
     RouterModule.forChild(
       appRoutes,
     )
-  ],
-  declarations: [],
-  exports: [
-    RouterModule
   ]
 })
 export class HomeRoutingModule { }

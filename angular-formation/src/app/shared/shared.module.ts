@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NavComponent } from './components/nav/nav.component';
 import { StateDirective } from './directives/state/state.directive';
@@ -12,7 +12,7 @@ import { FormComponent } from './components/form/form/form.component';
     CommonModule,
     RouterModule,
     NgbCollapseModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   declarations: [
     NavComponent,

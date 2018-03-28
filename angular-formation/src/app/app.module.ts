@@ -7,10 +7,12 @@ import { Error404Module } from './error404/error404.module';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppComponent } from './app.component';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { Router } from '@angular/router';
+import { CollectionService } from './core/services/collection/collection.service';
 
 @NgModule({
   imports: [
@@ -21,11 +23,14 @@ import { Router } from '@angular/router';
     NgbModule.forRoot(),
     AppRoutingModule,
     Error404Module,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   declarations: [
     AppComponent
   ],
   providers: [
+    CollectionService
   ],
   bootstrap: [AppComponent]
 })
