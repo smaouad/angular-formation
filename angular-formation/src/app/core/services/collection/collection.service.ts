@@ -8,7 +8,10 @@ import { Observable } from 'rxjs/Observable';
 export class CollectionService {
   private itemsCollection: AngularFirestoreCollection<Item>;
   private _collection: Observable<Item[]>;
-  constructor(private db: AngularFirestore) {
+
+  constructor(
+    private db: AngularFirestore,
+  ) {
     this.itemsCollection = db.collection<Item>('collection');
     this._collection = this.itemsCollection.valueChanges();
   }
